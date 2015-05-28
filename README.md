@@ -21,7 +21,7 @@ The order may matter.
 
 Then run main.py
 
-# About git 
+# Workflow
 
 We'll use "master" for the current state of development, but new features should be taken to new branches then merged to master when working.
 
