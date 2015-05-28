@@ -1,21 +1,15 @@
-# python's default config parser
-import ConfigParser, os
-
-config = ConfigParser.ConfigParser()
-config.readfp(open('device.cfg'))
-
-device_conf = {}
-device_conf["name"]=config.get('device', 'name')
-print device_conf["name"]
-
+################################
+# NI-DAQ Device as a module :) #
+################################
+from config import device #from config.py
 
 import os
 
 #from ConstantsClass import *
 #from CanvasClass import *
+print device["name"]
 
 from matplotlib.pylab import *
-
 
 import numpy as np
 
@@ -63,8 +57,8 @@ class WaveformThread( threading.Thread ):
 
             self.Write_data[ i ] = waveform[ i ]
 
-        # plot(self.Write_data)
-        # show()
+        #plot(self.Write_data)
+        #show()
         self.taskHandle_Write = TaskHandle(0)
         self.taskHandle_Read = TaskHandle(1)
         self.Channel = Channel
@@ -82,7 +76,7 @@ class WaveformThread( threading.Thread ):
                           ctypes.byref( self.taskHandle_Write )))
 
         self.CHK(nidaq.DAQmxCreateAOVoltageChan( self.taskHandle_Write ,
-                                   "TestDev_6251/"+self.Channel,
+                                   device["name"]+self.Channel,
                                    "",
                                    float64(-self.OutputVoltageRange),
                                    float64(self.OutputVoltageRange),
