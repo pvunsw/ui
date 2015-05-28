@@ -46,7 +46,7 @@ float64 = ctypes.c_double
 TaskHandle = uInt32
 # the constants
 
-DAQmx_InputSampleRate = float64(1.2e6) #max is float64(1e6), well its 1.25MS/s/channel
+DAQmx_InputSampleRate = float64(1.2e3) #max is float64(1e6), well its 1.25MS/s/channel
 DAQmx_OutPutSampleRate = float64(1.2e3) #Its 3.33MS/s
 
 class WaveformThread( threading.Thread ):
