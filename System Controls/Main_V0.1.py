@@ -101,7 +101,7 @@ class WaveformThread( threading.Thread ):
                           ctypes.byref( self.taskHandle_Write )))
 
         self.CHK(nidaq.DAQmxCreateAOVoltageChan( self.taskHandle_Write ,
-                                   "Dev3/"+self.Channel,
+                                   "TestDev_6251/"+self.Channel,
                                    "",
                                    float64(-self.OutputVoltageRange),
                                    float64(self.OutputVoltageRange),
@@ -109,7 +109,7 @@ class WaveformThread( threading.Thread ):
                                    None))
 
         self.CHK(nidaq.DAQmxCfgSampClkTiming( self.taskHandle_Write ,
-                                "/Dev3/ai/SampleClock",
+                                "/TestDev_6251/ai/SampleClock",
                                 self.sampleRate,   #samples per channel
                                 self.DAQmx_Val_Rising,   #active edge
                                 self.DAQmx_Val_FiniteSamps,
@@ -132,7 +132,7 @@ class WaveformThread( threading.Thread ):
         # print Time
         self.CHK(nidaq.DAQmxCreateTask("",ctypes.byref(self.taskHandle_Read)))
 
-        self.CHK(nidaq.DAQmxCreateAIVoltageChan(self.taskHandle_Read,"Dev3/ai0:2","",
+        self.CHK(nidaq.DAQmxCreateAIVoltageChan(self.taskHandle_Read,"TestDev_6251/ai0:2","",
                                                    self.DAQmx_Val_Diff,            #DAQmx_Val_Diff,   #DAQmx_Val_RSE,       #DAQmx_Val_Cfg_Default, #this is the rise type
                                                    float64(-self.InputVoltageRange),float64(self.InputVoltageRange),
                                                    self.DAQmx_Val_Volts,
