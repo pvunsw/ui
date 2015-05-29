@@ -1,7 +1,7 @@
 import ConfigParser, os
 
 config = ConfigParser.ConfigParser()
-config.readfp(open('device.cfg'))
+config.readfp(open('../device.cfg'))
 
 device = {}
 device["name"]=config.get('device', 'name')
