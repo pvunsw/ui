@@ -7,9 +7,11 @@ device.setup("dev_device") #will be stuff in waveform thread
 
 """ TODO: channel will be project specific? - name channels? #auto-return data - do we need side effects extra function calls here? seem un-necessary to me - see def SingleMeasurement(self) in original main."""
 
-data = device.point_measurement(channel, voltage, time)
+point = device.point_measurement(channel, voltage, time)
 
 average = device.average_measurement(channel, voltage, time, total)
 
-#with device.measurement(channel, voltage, time) as point_measurement:
-#    average =
+""" Maybe this way..."""
+with device.measurement(channel, voltage, time) as measurement:
+    number = 10
+    average = sum([measurement() for i in range(number)])/number
