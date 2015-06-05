@@ -8,15 +8,14 @@ DAQmx_OutPutSampleRate = device["output_samplerate"]
 DAQmx_InputSampleRate = device["input_samplerate"]
 
 class WaveformThread( threading.Thread ):
-    DAQmx_Val_Cfg_Default = int32(-1)
-    DAQmx_Val_Volts = 10348
-    DAQmx_Val_Rising = 10280
-    DAQmx_Val_FiniteSamps = 10178
-    DAQmx_Val_ContSamps = 10123
-    DAQmx_Val_GroupByChannel = 0
-    DAQmax_Channels_Number =3
-
-    DAQmx_Val_Diff = int32(-1)
+    DAQmx_Val_Cfg_Default = int32(-1) # constant
+    DAQmx_Val_Volts = 10348           # constant
+    DAQmx_Val_Rising = 10280          # constant
+    DAQmx_Val_FiniteSamps = 10178     # constant
+    DAQmx_Val_ContSamps = 10123       # constant
+    DAQmx_Val_GroupByChannel = 0      # constant
+    DAQmax_Channels_Number =3         # TODO: not sure
+    DAQmx_Val_Diff = int32(-1)        # TODO: different to value in NIDAQ.h
     InputVoltageRange = 10  #this controls the input voltage range. (=-10,=-5, =-2,+-1)
     OutputVoltageRange = 10 #this controls the  output voltage range. Minimum is -5 to 5
     DAQmx_Val_GroupByScanNumber = 0 #this places the points one at a time from each channel, I think
